@@ -1,6 +1,8 @@
 const app = require('./app');
 
-// Inicia el servidor
-app.listen(3000, () => {
-    console.log('Servidor iniciado en el puerto 3000');
+const port = app.get('port');
+const host = process.env.DEMO_MODE === 'true' ? '127.0.0.1' : undefined;
+
+app.listen(port, host, () => {
+    console.log(`Servidor iniciado en el puerto ${port}`);
 });

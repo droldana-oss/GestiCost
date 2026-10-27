@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'scripts')));
 
 // RUTAS
 // las rutas son archivos que contienen las peticiones y respuestas del servidor
-app.use(require('./routers/index'));
+app.use(require(process.env.DEMO_MODE === 'true' ? './routers/demo' : './routers/index'));
 
 // Exportamos el objeto app
 module.exports = app;

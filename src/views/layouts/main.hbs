@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  {{#if demo}}<script>localStorage.setItem('idToken', 'local-demo');</script>{{/if}}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GestiCost</title>
@@ -59,6 +60,14 @@
 </body>
 
 
+{{#if demo}}
+{{#if transactionsPage}}
+<script src="transacciones.js"></script>
+<script src="categorias.js"></script>
+{{/if}}
+{{#if goalsPage}}<script src="meta.js"></script>{{/if}}
+<script src="main.js"></script>
+{{else}}
 <script src="transacciones.js"></script>
 <script src="main.js"></script>
 <script type="module" src="google_auth.js"></script>
@@ -67,4 +76,5 @@
 
 
 
+{{/if}}
 </html>
